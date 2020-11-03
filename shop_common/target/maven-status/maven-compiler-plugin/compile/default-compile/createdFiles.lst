@@ -1,0 +1,4 @@
+org\example\domain\User.class
+org\example\domain\Order.class
+org\example\domain\Product.class
+org\example\domain\TxLog.class
