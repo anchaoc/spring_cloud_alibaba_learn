@@ -11,6 +11,8 @@
     <modules>
         <module>shop_common</module>
         <module>shop-user</module>
+        <module>shop_product</module>
+        <module>shop-order</module>
     </modules>
 
     <parent>
