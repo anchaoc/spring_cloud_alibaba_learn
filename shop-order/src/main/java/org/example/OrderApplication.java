@@ -18,7 +18,13 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class);
     }
 
+    /**
+     * ribbon 负载均衡
+     * 使restTemplate拥有负载均衡得能力
+     * 默认轮询
+     */
     @Bean
+    @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
