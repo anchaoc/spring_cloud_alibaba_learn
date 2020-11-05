@@ -37,7 +37,9 @@ public class ProductController {
     }
 
 
-    //商品信息查询
+    /**
+     * 商品信息查询
+     */
     @RequestMapping("/product/{pid}")
     public Product product(@PathVariable("pid") Integer pid) {
         log.info("接下来要进行{}号商品信息的查询", pid);
@@ -46,7 +48,11 @@ public class ProductController {
         return product;
     }
 
-    //扣减库存
+    /**
+     * 扣减库存
+     * @param pid
+     * @param number
+     */
     @RequestMapping("/product/reduceInventory")
     public void reduceInventory(Integer pid, Integer number) {
         productService.reduceInventory(pid, number);
