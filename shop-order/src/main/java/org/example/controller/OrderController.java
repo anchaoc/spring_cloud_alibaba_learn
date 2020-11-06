@@ -25,7 +25,7 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private DiscoveryClient discoveryClient;
-    @Autowired
+    @Resource
     private ProductServiceFeign productService;
 
 
@@ -44,7 +44,7 @@ public class OrderController {
         order.setPname(product.getPname());
         order.setPprice(product.getPprice());
         order.setNumber(1);
-        orderService.createOrder(order);
+        //orderService.createOrder(order);
         log.info("创建订单成功,订单信息为{}", JSON.toJSONString(order));
         return order;
     }
