@@ -1,0 +1,21 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # 将gateway注册到nacos
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 让gateway从nacos中获取服务信息
+      routes: #路由到各个微服务
+        - id: product_route #路由唯一标识
+          uri: lb://service-product #路由到的地址
+          order: 1 #路由的优先级 数字越小优先级越高
+          predicates: #路由条件 满足条件即可转发
+            - Path=/product-serv/**
+          filters: #过滤
+            - StripPrefix=1 #跳过第一层路径 (如http://localhost:8081/"product-serv"/product/1)
